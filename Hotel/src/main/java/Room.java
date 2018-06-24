@@ -7,13 +7,11 @@ public abstract class Room {
     private ArrayList<Guest> guests;
     private Guest guest;
     private double balance;
-    private String greetings;
 
     public Room(int capacity) {
         this.capacity = capacity;
         this.guests = new ArrayList<Guest>();
         this.balance = 0;
-        this.greetings = greetings;
     }
 
     public int getCapacity() {
@@ -42,7 +40,5 @@ public abstract class Room {
         return balance;
     }
 
-    public String getGreetings() {
-        return "Welcome to Hotel CodeClan Tower!";
-    }
+    public abstract String getGreetings();
 }

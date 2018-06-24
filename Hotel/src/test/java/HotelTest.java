@@ -67,4 +67,9 @@ public class HotelTest {
         assertEquals(freeRooms, hotel.vacantRooms());
     }
 
+    @Test
+    public void testHotelHasGreetings(){
+       assertEquals("Welcome to Hotel CodeClan Tower!", hotel.getGreetings());
+    }
+
 }

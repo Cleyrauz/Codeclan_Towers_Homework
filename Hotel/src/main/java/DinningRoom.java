@@ -11,7 +11,6 @@ public class DinningRoom extends Room {
         return name;
     }
 
-    @Override
     public String getGreetings() {
         return "Welcome to The Dinner House!";
     }

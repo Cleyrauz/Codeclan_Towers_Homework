@@ -27,8 +27,8 @@ public class ConferenceRoom extends Room {
         else System.out.println("Guest can't afford the room");
     }
 
-    @Override
     public String getGreetings() {
         return "Welcome to the ConferenceRoom!";
     }
+
 }

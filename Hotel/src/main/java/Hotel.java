@@ -11,6 +11,10 @@ public class Hotel extends Room {
         this.guest = guest;
     }
 
+    public String getGreetings() {
+        return "Welcome to Hotel CodeClan Tower!";
+    }
+
     public void addRoom(Room room){
         this.listRooms.add(room);
     }
@@ -19,14 +23,13 @@ public class Hotel extends Room {
         return listRooms;
     }
 
-    public ArrayList vacantRooms(){
+    public ArrayList vacantRooms() {
         ArrayList<Room> freeRooms = new ArrayList<Room>();
-        for(Room room : listRooms){
-            if(room.getGuests().size() == 0){
+        for (Room room : listRooms) {
+            if (room.getGuests().size() == 0) {
                 freeRooms.add(room);
             }
         }
-
         return freeRooms;
     }
 }

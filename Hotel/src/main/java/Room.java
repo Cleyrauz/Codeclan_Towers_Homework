@@ -6,10 +6,12 @@ public abstract class Room {
     private int capacity;
     private ArrayList<Guest> guests;
     private Guest guest;
+    private double balance;
 
     public Room(int capacity) {
         this.capacity = capacity;
         this.guests = new ArrayList<Guest>();
+        this.balance = 0;
     }
 
     public int getCapacity() {
@@ -29,4 +31,13 @@ public abstract class Room {
     public void checkOut(Guest guest) {
         this.guests.remove(guest);
     }
+
+    protected void addBalance(double nightlyRate) {
+       this.balance += nightlyRate;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
 }

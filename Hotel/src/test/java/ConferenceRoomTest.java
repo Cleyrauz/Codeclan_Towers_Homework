@@ -11,10 +11,10 @@ public class ConferenceRoomTest {
     @Before
     public void setUp(){
         conferenceRoom = new ConferenceRoom(3, "La Orchila", 40);
-        guest1 = new Guest("Cleyra");
-        guest2 = new Guest("Roddy");
-        guest3 = new Guest("Jose");
-        guest4 = new Guest("Jaime");
+        guest1 = new Guest("Cleyra", 100);
+        guest2 = new Guest("Roddy", 50.5);
+        guest3 = new Guest("Jose", 70.80);
+        guest4 = new Guest("Jaime", 100);
     }
 
     @Test
@@ -22,15 +22,15 @@ public class ConferenceRoomTest {
         assertEquals("La Orchila", conferenceRoom.getName());
     }
 
-    @Test
 
+    @Test
     public void testHasACapacity(){
-        assertEquals(100, conferenceRoom.getCapacity());
+        assertEquals(3, conferenceRoom.getCapacity());
     }
 
     @Test
     public void testHasADailyRate(){
-        assertEquals(200, conferenceRoom.getDailyRate());
+        assertEquals(40, conferenceRoom.getDailyRate());
     }
 
     @Test
@@ -53,6 +53,23 @@ public class ConferenceRoomTest {
     public void testCheckOut(){
         conferenceRoom.checkIn(guest1);
         conferenceRoom.checkOut(guest1);
+        assertEquals(0, conferenceRoom.getGuests().size());
+    }
+
+    @Test
+    public void testHasBalance(){
+        assertEquals(0, conferenceRoom.getBalance(), 0);
+    }
+
+    @Test
+    public void testGuestCanAffordTheRoom(){
+        guest2.pay(conferenceRoom.getDailyRate());
+        assertEquals(10.5, guest2.getPocketMoney(), 0);
+    }
+
+    @Test
+    public void testCanNotAffordTheRoom(){
+        guest1.pay(conferenceRoom.getDailyRate());
         assertEquals(0, conferenceRoom.getGuests().size());
     }
 }

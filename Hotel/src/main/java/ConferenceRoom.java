@@ -7,6 +7,7 @@ public class ConferenceRoom extends Room {
         super(capacity);
         this.name = name;
         this.dailyRate = dailyRate;
+
     }
 
     public String getName() {
@@ -17,4 +18,12 @@ public class ConferenceRoom extends Room {
         return dailyRate;
     }
 
+    @Override
+    public void checkIn(Guest guest) {
+        if(guest.getPocketMoney() >= this.dailyRate){
+            super.checkIn(guest);
+            guest.pay(dailyRate);
+        }
+        else System.out.println("Guest can't afford the room");
+    }
 }

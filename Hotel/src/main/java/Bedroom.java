@@ -3,21 +3,23 @@ import java.util.ArrayList;
 public class Bedroom extends Room {
 
     private int number;
-    private int nightlyRate;
+    private double nightlyRate;
     private RoomType room;
+    private int numbersOfNights;
 
-    public Bedroom(int number, int nightlyRate, RoomType room) {
+    public Bedroom(int number, double nightlyRate, RoomType room, int numbersOfNights) {
         super(room.getValue());
         this.number = number;
         this.nightlyRate = nightlyRate;
         this.room = room;
+        this.numbersOfNights = 3;
     }
 
     public int getNumber() {
         return number;
     }
 
-    public int getNightlyRate() {
+    public double getNightlyRate() {
         return nightlyRate;
     }
 
@@ -25,4 +27,17 @@ public class Bedroom extends Room {
         return room.getName();
     }
 
+    @Override
+    public void checkIn(Guest guest) {
+        if(guest.getPocketMoney() >= this.nightlyRate){
+            super.checkIn(guest);
+            super.addBalance(nightlyRate);
+            guest.pay(nightlyRate);
+        }
+        else System.err.println("Guest can't afford the room");
+    }
+
+    public int getNumbersOfNights(){
+       return this.numbersOfNights;
+    }
 }

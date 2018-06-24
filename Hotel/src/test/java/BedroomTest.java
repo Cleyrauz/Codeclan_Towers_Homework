@@ -10,9 +10,9 @@ public class BedroomTest {
 
     @Before
     public void setUp(){
-      bedroom = new Bedroom(1, 20, RoomType.SINGLE);
-      guest1 = new Guest("Roddy");
-      guest2 = new Guest("Cleyra");
+      bedroom = new Bedroom(1, 20, RoomType.SINGLE, 3);
+      guest1 = new Guest("Roddy", 50.5);
+      guest2 = new Guest("Cleyra", 10);
     }
 
     @Test
@@ -22,7 +22,7 @@ public class BedroomTest {
 
     @Test
     public void testHasANightlyRate(){
-        assertEquals(20, bedroom.getNightlyRate());
+        assertEquals(20, bedroom.getNightlyRate(), 0);
     }
 
     @Test
@@ -49,6 +49,23 @@ public class BedroomTest {
         bedroom.checkIn(guest1);
         bedroom.checkOut(guest1);
         assertEquals(0, bedroom.getGuests().size());
+    }
+
+    @Test
+    public void testGuestCanAffordTheRoom(){
+        bedroom.checkIn(guest1);
+        assertEquals(30.5, guest1.getPocketMoney(), 0);
+    }
+
+    @Test
+    public void testHasABalance(){
+        assertEquals(0, bedroom.getBalance(), 0);
+    }
+
+    @Test
+    public void testGuestCanNotAffordTheRoom(){
+      guest2.pay(bedroom.getNightlyRate());
+      assertEquals(0, bedroom.getGuests().size());
     }
 
 }

@@ -10,4 +10,9 @@ public class DinningRoom extends Room {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String getGreetings() {
+        return "Welcome to The Dinner House!";
+    }
 }

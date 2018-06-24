@@ -41,4 +41,9 @@ public class DinningRoomTest {
         dinningRoom.checkIn(guest4);
         assertEquals(2, dinningRoom.getGuests().size());
     }
+
+    @Test
+    public void testDinningRoomHasGreetings(){
+        assertEquals("Welcome to The Dinner House!", dinningRoom.getGreetings());
+    }
 }

@@ -36,4 +36,8 @@ public class Bedroom extends Room {
         else System.err.println("Guest can't afford the room");
     }
 
+    @Override
+    public String getGreetings() {
+        return "Welcome to our Bedroom! Have a good night.";
+    }
 }

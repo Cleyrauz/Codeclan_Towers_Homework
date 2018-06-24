@@ -72,4 +72,9 @@ public class ConferenceRoomTest {
         guest1.pay(conferenceRoom.getDailyRate());
         assertEquals(0, conferenceRoom.getGuests().size());
     }
+
+    @Test
+    public void testConferenceRoomHasGreetings(){
+        assertEquals("Welcome to the ConferenceRoom!", conferenceRoom.getGreetings());
+    }
 }

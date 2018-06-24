@@ -68,4 +68,9 @@ public class BedroomTest {
       assertEquals(0, bedroom.getGuests().size());
     }
 
+    @Test
+    public void testBedroomHasGreetings(){
+        assertEquals("Welcome to our Bedroom! Have a good night.", bedroom.getGreetings());
+    }
+
 }

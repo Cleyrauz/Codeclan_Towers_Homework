@@ -10,8 +10,8 @@ public class GuestTest {
 
     @Before
     public void setUp(){
-        guest = new Guest("Adri White", 50.5);
-        bedroom = new Bedroom(1, 20, RoomType.SINGLE, 3);
+        guest = new Guest("Adri White", 50.5, 1);
+        bedroom = new Bedroom(1, 20, RoomType.SINGLE);
     }
 
     @Test
@@ -28,5 +28,9 @@ public class GuestTest {
     public void testGuestCanPay(){
         guest.pay(bedroom.getNightlyRate());
        assertEquals(30.5, guest.getPocketMoney(), 0);
+    }
+    @Test
+    public void testHasNumberOfNights(){
+        assertEquals(1, guest.getNumberOfNights());
     }
 }

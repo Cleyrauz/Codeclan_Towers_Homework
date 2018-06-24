@@ -10,9 +10,9 @@ public class BedroomTest {
 
     @Before
     public void setUp(){
-      bedroom = new Bedroom(1, 20, RoomType.SINGLE, 3);
-      guest1 = new Guest("Roddy", 50.5);
-      guest2 = new Guest("Cleyra", 10);
+      bedroom = new Bedroom(1, 20, RoomType.SINGLE);
+      guest1 = new Guest("Roddy", 500.5, 3);
+      guest2 = new Guest("Cleyra", 10, 1);
     }
 
     @Test
@@ -54,7 +54,7 @@ public class BedroomTest {
     @Test
     public void testGuestCanAffordTheRoom(){
         bedroom.checkIn(guest1);
-        assertEquals(30.5, guest1.getPocketMoney(), 0);
+        assertEquals(480.5, guest1.getPocketMoney(), 0);
     }
 
     @Test

@@ -5,14 +5,13 @@ public class Bedroom extends Room {
     private int number;
     private double nightlyRate;
     private RoomType room;
-    private int numbersOfNights;
 
-    public Bedroom(int number, double nightlyRate, RoomType room, int numbersOfNights) {
+
+    public Bedroom(int number, double nightlyRate, RoomType room) {
         super(room.getValue());
         this.number = number;
         this.nightlyRate = nightlyRate;
         this.room = room;
-        this.numbersOfNights = 3;
     }
 
     public int getNumber() {
@@ -29,7 +28,7 @@ public class Bedroom extends Room {
 
     @Override
     public void checkIn(Guest guest) {
-        if(guest.getPocketMoney() >= this.nightlyRate){
+        if(guest.getPocketMoney() >= this.nightlyRate * guest.getNumberOfNights()){
             super.checkIn(guest);
             super.addBalance(nightlyRate);
             guest.pay(nightlyRate);
@@ -37,7 +36,4 @@ public class Bedroom extends Room {
         else System.err.println("Guest can't afford the room");
     }
 
-    public int getNumbersOfNights(){
-       return this.numbersOfNights;
-    }
 }

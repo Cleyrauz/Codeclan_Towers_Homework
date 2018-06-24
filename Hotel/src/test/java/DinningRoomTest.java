@@ -11,10 +11,10 @@ public class DinningRoomTest {
     @Before
     public void setUp(){
       dinningRoom = new DinningRoom(2, "The Dinner House");
-      guest = new Guest("Cleyra", 10);
-      guest2 = new Guest("Jose", 10);
-      guest3 = new Guest("Julio", 10);
-      guest4 = new Guest("Maria", 10);
+      guest = new Guest("Cleyra", 10, 1);
+      guest2 = new Guest("Jose", 10, 1);
+      guest3 = new Guest("Julio", 10, 1);
+      guest4 = new Guest("Maria", 10, 1);
     }
 
     @Test

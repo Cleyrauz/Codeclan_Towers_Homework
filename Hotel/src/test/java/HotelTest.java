@@ -19,13 +19,13 @@ public class HotelTest {
     @Before
     public void setUp() {
         rooms = new ArrayList<Room>();
-        guest1 = new Guest("Claire", 300);
-        guest2 = new Guest("Paul", 250.5);
-        guest3 = new Guest("Josh", 450);
-        bedroom1 = new Bedroom(1, 60, RoomType.FAMILY, 1);
-        bedroom2 = new Bedroom(2, 20, RoomType.SINGLE, 1);
-        bedroom3 = new Bedroom(3, 30, RoomType.SUITE, 1);
-        bedroom4 = new Bedroom(4, 40, RoomType.DOUBLE,1);
+        guest1 = new Guest("Claire", 300, 3);
+        guest2 = new Guest("Paul", 250.5, 2);
+        guest3 = new Guest("Josh", 450, 5);
+        bedroom1 = new Bedroom(1, 60, RoomType.FAMILY);
+        bedroom2 = new Bedroom(2, 20, RoomType.SINGLE);
+        bedroom3 = new Bedroom(3, 30, RoomType.SUITE);
+        bedroom4 = new Bedroom(4, 40, RoomType.DOUBLE);
         hotel = new Hotel(4);
         bedrooms = new ArrayList<Bedroom>();
         freeRooms = new ArrayList<Room>();
@@ -65,11 +65,6 @@ public class HotelTest {
         hotel.addRoom(bedroom3);
         hotel.addRoom(bedroom4);
         assertEquals(freeRooms, hotel.vacantRooms());
-    }
-
-    @Test
-    public void testHasNumbersOfNights(){
-        assertEquals(3, bedroom1.getNumbersOfNights());
     }
 
 }

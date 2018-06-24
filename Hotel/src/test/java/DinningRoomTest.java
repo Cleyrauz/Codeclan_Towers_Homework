@@ -10,7 +10,7 @@ public class DinningRoomTest {
 
     @Before
     public void setUp(){
-      dinningRoom = new DinningRoom(2, "The Dinner House");
+      dinningRoom = new DinningRoom(2, "The Dinner House", 1234);
       guest = new Guest("Cleyra", 10, 1);
       guest2 = new Guest("Jose", 10, 1);
       guest3 = new Guest("Julio", 10, 1);
@@ -45,5 +45,11 @@ public class DinningRoomTest {
     @Test
     public void testDinningRoomHasGreetings(){
         assertEquals("Welcome to The Dinner House!", dinningRoom.getGreetings());
+    }
+
+    @Test
+    public void testGuestHasAccess(){
+        guest.setKey(1234);
+        assertEquals(true, dinningRoom.guestHasAccess(guest));
     }
 }

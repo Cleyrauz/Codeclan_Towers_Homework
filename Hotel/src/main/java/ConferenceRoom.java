@@ -3,8 +3,8 @@ public class ConferenceRoom extends Room {
     private String name;
     private int dailyRate;
 
-    public ConferenceRoom(int capacity, String name, int dailyRate) {
-        super(capacity);
+    public ConferenceRoom(int capacity, String name, int dailyRate, int password) {
+        super(capacity, password);
         this.name = name;
         this.dailyRate = dailyRate;
 

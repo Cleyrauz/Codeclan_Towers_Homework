@@ -10,7 +10,7 @@ public class BedroomTest {
 
     @Before
     public void setUp(){
-      bedroom = new Bedroom(1, 20, RoomType.SINGLE);
+      bedroom = new Bedroom(1, 20, RoomType.SINGLE, 4554);
       guest1 = new Guest("Roddy", 500.5, 3);
       guest2 = new Guest("Cleyra", 10, 1);
     }
@@ -71,6 +71,12 @@ public class BedroomTest {
     @Test
     public void testBedroomHasGreetings(){
         assertEquals("Welcome to our Bedroom! Have a good night.", bedroom.getGreetings());
+    }
+
+    @Test
+    public void testGuestHasAccessToBedroom(){
+        guest1.setKey(4554);
+        assertEquals(true, bedroom.guestHasAccess(guest1));
     }
 
 }

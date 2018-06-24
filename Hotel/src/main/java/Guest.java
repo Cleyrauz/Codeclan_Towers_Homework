@@ -3,6 +3,7 @@ public class Guest {
     private String name;
     private double pocketMoney;
     private int numberOfNights;
+    private int key;
 
 
     public Guest(String name, double pocketMoney, int numberOfNights) {
@@ -25,5 +26,13 @@ public class Guest {
 
     public int getNumberOfNights() {
         return numberOfNights;
+    }
+
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
     }
 }

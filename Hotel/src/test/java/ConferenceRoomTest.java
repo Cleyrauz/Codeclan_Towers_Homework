@@ -10,7 +10,7 @@ public class ConferenceRoomTest {
 
     @Before
     public void setUp(){
-        conferenceRoom = new ConferenceRoom(3, "La Orchila", 40);
+        conferenceRoom = new ConferenceRoom(3, "La Orchila", 40, 4321);
         guest1 = new Guest("Cleyra", 100, 1);
         guest2 = new Guest("Roddy", 50.5, 1);
         guest3 = new Guest("Jose", 70.80, 2);
@@ -76,5 +76,11 @@ public class ConferenceRoomTest {
     @Test
     public void testConferenceRoomHasGreetings(){
         assertEquals("Welcome to the ConferenceRoom!", conferenceRoom.getGreetings());
+    }
+
+    @Test
+    public void testGuestHasAccess(){
+        guest3.setKey(4321);
+        assertEquals(true, conferenceRoom.guestHasAccess(guest3));
     }
 }

@@ -7,11 +7,13 @@ public abstract class Room {
     private ArrayList<Guest> guests;
     private Guest guest;
     private double balance;
+    protected int password;
 
-    public Room(int capacity) {
+    public Room(int capacity, int password) {
         this.capacity = capacity;
         this.guests = new ArrayList<Guest>();
         this.balance = 0;
+        this.password = password;
     }
 
     public int getCapacity() {
@@ -41,4 +43,11 @@ public abstract class Room {
     }
 
     public abstract String getGreetings();
+
+    public boolean guestHasAccess(Guest guest){
+        if(guest.getKey() == this.password){
+            return true;
+        }
+        return false;
+    }
 }

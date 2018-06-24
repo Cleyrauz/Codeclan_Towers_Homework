@@ -5,8 +5,8 @@ public class Hotel extends Room {
     private ArrayList<Room> listRooms;
     private Guest guest;
 
-    public Hotel(int capacity) {
-        super(capacity);
+    public Hotel(int capacity, int password) {
+        super(capacity, password);
         this.listRooms = new ArrayList<Room>();
         this.guest = guest;
     }

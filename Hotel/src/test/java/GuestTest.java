@@ -11,7 +11,7 @@ public class GuestTest {
     @Before
     public void setUp(){
         guest = new Guest("Adri White", 50.5, 1);
-        bedroom = new Bedroom(1, 20, RoomType.SINGLE);
+        bedroom = new Bedroom(1, 20, RoomType.SINGLE, 4554);
     }
 
     @Test
@@ -32,5 +32,10 @@ public class GuestTest {
     @Test
     public void testHasNumberOfNights(){
         assertEquals(1, guest.getNumberOfNights());
+    }
+    @Test
+    public void guestHasAKey(){
+        guest.setKey(1234);
+        assertEquals(1234, guest.getKey());
     }
 }

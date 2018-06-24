@@ -22,11 +22,11 @@ public class HotelTest {
         guest1 = new Guest("Claire", 300, 3);
         guest2 = new Guest("Paul", 250.5, 2);
         guest3 = new Guest("Josh", 450, 5);
-        bedroom1 = new Bedroom(1, 60, RoomType.FAMILY);
-        bedroom2 = new Bedroom(2, 20, RoomType.SINGLE);
-        bedroom3 = new Bedroom(3, 30, RoomType.SUITE);
-        bedroom4 = new Bedroom(4, 40, RoomType.DOUBLE);
-        hotel = new Hotel(4);
+        bedroom1 = new Bedroom(1, 60, RoomType.FAMILY, 1234);
+        bedroom2 = new Bedroom(2, 20, RoomType.SINGLE, 1234);
+        bedroom3 = new Bedroom(3, 30, RoomType.SUITE, 1234);
+        bedroom4 = new Bedroom(4, 40, RoomType.DOUBLE, 1234);
+        hotel = new Hotel(4, 1234);
         bedrooms = new ArrayList<Bedroom>();
         freeRooms = new ArrayList<Room>();
 
@@ -70,6 +70,12 @@ public class HotelTest {
     @Test
     public void testHotelHasGreetings(){
        assertEquals("Welcome to Hotel CodeClan Tower!", hotel.getGreetings());
+    }
+
+    @Test
+    public void testGuestHasAccess(){
+        guest1.setKey(1234);
+        assertEquals(true, hotel.guestHasAccess(guest1));
     }
 
 }
